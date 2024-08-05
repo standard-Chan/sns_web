@@ -6,7 +6,7 @@ firebase 기반 sns web 토이 프로젝트
 
 firebase api를 이용하여 메시지, 이미지 공유하는 sns web 제작.
 
-## 목적
+## '목적 및 참고 사이트'
 
 + firebase API 활용
 + JS 기본 동기, 비동기 이해 및 활용
