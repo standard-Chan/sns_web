@@ -6,6 +6,7 @@ firebase 기반 sns web 토이 프로젝트
 
 firebase api를 이용하여 메시지, 이미지 공유하는 sns web 제작.
 
+---------------------
 ## '목적 및 참고 사이트'
 
 + firebase API 활용
@@ -15,7 +16,7 @@ firebase api를 이용하여 메시지, 이미지 공유하는 sns web 제작.
   + blob, file <https://velog.io/@minh0518/Blob%EA%B0%9D%EC%B2%B4%EB%9E%80>
   + base64, fileReader <https://velog.io/@minh0518/base64-data-url-FileReader-%EC%97%90-%EB%8C%80%ED%95%B4>
 
-
+--------
 
 ### 개발 기간
 + 24.08.05(월) ~
