@@ -3,6 +3,8 @@ import Auth from '../routes/Auth';
 import './App.css';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import {auth} from "../firebase";
+import Home from '../routes/Home';
+import Router from './Router';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -23,14 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <Auth/>
-      <div>
-        {isLoggedIn ?
-          (<h1>log in complete!</h1>) :( 
-            <h1> log out state</h1>
-          )
-        }
-      </div>
+      <Router/>
     </div>
   );
 }
