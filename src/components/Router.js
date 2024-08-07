@@ -9,11 +9,11 @@ const Router = ({isLoggedIn}) => {
 
   return (
     <BrowserRouter>
+      {isLoggedIn && <Navigation/>}
       <Routes>
         {isLoggedIn ? (
         <>
-          <Route path="/" element={<App/>} />
-          <Route path="/home" element={<Home/>} />
+          <Route path="/" element={<Home/>} />
           <Route path="/profile" element={<Profile/>} />
         </>
         ) : (

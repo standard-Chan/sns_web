@@ -8,10 +8,11 @@ import Router from './Router';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [init, setInit] = useState(false);
 
-  useEffect(() => {
+  const checkLoggedIn = async () => {
     console.log(auth);
-    onAuthStateChanged(auth, (user) => {
+    await onAuthStateChanged(auth, (user) => {
       if (user) {
         const uid = user.uid;
         setIsLoggedIn(true);
@@ -21,11 +22,16 @@ function App() {
         setIsLoggedIn(false);
       }
     });
+  }
+
+  useEffect(() => {
+    checkLoggedIn();
+    setInit(true);
   });
 
   return (
     <div className="App">
-      <Router/>
+      {init ? (<Router isLoggedIn={isLoggedIn}/>) : "initializing..."}
     </div>
   );
 }

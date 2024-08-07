@@ -1,11 +1,11 @@
+import CommentFactory from "../components/CommentFactory";
 
 const Home = () => {
 
-  
-
   return (
     <>
-      <h3>Main</h3>
+      <h1>Main</h1>
+      <CommentFactory/>
     </>
   );
 }
