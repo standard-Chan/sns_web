@@ -9,29 +9,45 @@ import Router from './Router';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [init, setInit] = useState(false);
+  const [userObj, setUserObj] = useState(Object);
 
   const checkLoggedIn = async () => {
-    console.log(auth);
     await onAuthStateChanged(auth, (user) => {
       if (user) {
-        const uid = user.uid;
         setIsLoggedIn(true);
         console.log("log IN !!");
+        setUserObj({
+          uid : auth.currentUser.uid,
+          displayName : auth.currentUser.displayName,
+        })
       } else {
         console.log("log out state!!")
         setIsLoggedIn(false);
       }
     });
   }
+  
+  const refreshUserName = async () => {
+    await onAuthStateChanged(auth, (user) => {
+        setIsLoggedIn(true);
+        console.log("log IN !!");
+        setUserObj({
+          uid : auth.currentUser.uid,
+          displayName : auth.currentUser.displayName,
+        });
+      });
+  }
+
 
   useEffect(() => {
     checkLoggedIn();
     setInit(true);
-  });
+    console.log("APP : ", userObj);
+  }, []);
 
   return (
     <div className="App">
-      {init ? (<Router isLoggedIn={isLoggedIn}/>) : "initializing..."}
+      {init ? (<Router isLoggedIn={isLoggedIn} userObj={userObj} refreshUserName={refreshUserName}/>) : "initializing..."}
     </div>
   );
 }

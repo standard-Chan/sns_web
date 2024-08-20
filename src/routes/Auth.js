@@ -32,7 +32,7 @@ const Auth = () => {
       <form>
         <input type='email' name='email' placeholder='email'/>
         <input type='password' name='password' placeholder='password'/>
-        <input type='submit'/>
+        <input type='submit' value={"log in"}/>
       </form>
       <button onClick={onGoogleClick}>continue to google</button>
       <button onClick={onGitClick}>continue to gitHub</button>

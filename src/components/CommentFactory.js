@@ -3,7 +3,7 @@ import { db } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 
 
-const CommentFactory = () => {
+const CommentFactory = ({userObj}) => {
   const [text, setText] = useState("");
 
   const onSubmit = async (event) => {
@@ -13,7 +13,8 @@ const CommentFactory = () => {
     var today = new Date();
     const data = "" + today.getFullYear() + "0" + (today.getMonth() + 1) + "0" + today.getDate();
     await addDoc(ref, {
-      user : "user",
+      createdBy : userObj.displayName,
+      uid : userObj.uid,
       comment : text,
       createdAt : data,
     })
